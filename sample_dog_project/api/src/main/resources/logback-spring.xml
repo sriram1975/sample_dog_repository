@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+    <springProperty scope="context" name="LOG_LEVEL" source="log.level" />
+    
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook" />
+    
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %-65(%d{yyyy-MM-dd HH:mm:ss.SSS zzz} [%thread]) %-5p %-65c{65} %m%n
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>
