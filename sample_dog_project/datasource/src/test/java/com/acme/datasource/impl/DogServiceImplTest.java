@@ -59,17 +59,18 @@ class DogServiceImplTest {
 
 	@Test
 	void readAllTest() {
-		// TODO
+		List<Dog> dogList = dogDatasourceImpl.readAll();
+		assertEquals(6, dogList.size());
 	}
 
 	@Test
 	void readByBirthDateGreaterThanTest() {
-		// TODO
+		List<Dog> dogList = dogDatasourceImpl.readByBirthDateGreaterThan(LocalDate.of(2018, 12, 12));
+		assertEquals(3, dogList.size());
 	}
 
 	@Test
 	void deleteTest() {
-		// TODO
+		assertTrue(dogDatasourceImpl.delete("111"));
 	}
-
 }
