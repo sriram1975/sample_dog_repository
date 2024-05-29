@@ -39,11 +39,15 @@ public class DogService {
 		return dogDatasource.create(dog);
 	}
 
-	public boolean update(String id, Dog dog)
+	public boolean update(String id, Dog updatedDog)
 	{
 		Optional<Dog> originalDog = dogDatasource.readById(id);
-		Dog d = originalDog.orElseThrow();
-		d.setId(id);
+		Dog dog = originalDog.orElse(new Dog());
+		dog.setId(id);
+		dog.setName(updatedDog.getName());
+		dog.setBirthDate(updatedDog.getBirthDate().toLocalDate());
+		dog.setSpecies(updatedDog.getSpecies());
+		dog.setGender(updatedDog.getGender());
 		return dogDatasource.update(dog);
 	}
 
